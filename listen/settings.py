@@ -37,7 +37,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Added apps
+    'rest_framework',
+    'rest_framework.authtoken',  # token authentication
+    'corsheaders',  # CORS
+     # other apps
+    'accounts',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # Token auth
+        # 'rest_framework_simplejwt.authentication.JWTAuthentication',  # For JWT
+    ],
+    # ... any other configurations for DRF ...
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -47,6 +61,24 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Added middleware
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+]
+
+# CORS settings
+
+CORS_ALLOW_CREDENTIALS = True
+
+# For production (list your frontend origins)
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
+
+CORS_ALLOW_HEADERS = [
+    'authorization',
+    'content-type',
+    # other headers if needed
 ]
 
 ROOT_URLCONF = 'listen.urls'

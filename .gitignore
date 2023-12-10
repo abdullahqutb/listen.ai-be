@@ -67,3 +67,12 @@ celerybeat.pid
 
 # SageMath parsed files
 *.sage
+
+# Environments
+.env
+.venv
+env/
+
+# VSCode project files
+.vscode/
+launch.json
