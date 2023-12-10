@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'corsheaders',  # CORS
      # other apps
     'accounts',
+    'file_processing',
 ]
 
 REST_FRAMEWORK = {
@@ -52,6 +53,11 @@ REST_FRAMEWORK = {
     ],
     # ... any other configurations for DRF ...
 }
+
+AWS_ACCESS_KEY_ID = 'AKIAYX4QJETEHJVD4WEL'
+AWS_SECRET_ACCESS_KEY = 'V8xqIpxnJJ3/0gSOEj20O1wCmIeg2CzNzYPNddwK'
+AWS_STORAGE_BUCKET_NAME = 'listen.ai'
+AWS_S3_REGION_NAME = 'eu-west-2'  # e.g., 'us-east-1'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
